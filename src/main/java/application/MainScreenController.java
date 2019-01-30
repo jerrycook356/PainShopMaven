@@ -2,10 +2,12 @@ package application;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 import application.Model.Customer;
 import application.Model.DatabaseHelper;
 import application.Model.Item;
+import application.Model.ReviewItem;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.Event;
@@ -125,7 +127,15 @@ public class MainScreenController {
 	//review section
 	@FXML
 	public Button reviewRemoveButton;
-	ObservableList<Item> reviewItems = FXCollections.observableArrayList();
+	ObservableList<ReviewItem> reviewItems = FXCollections.observableArrayList();
+	@FXML
+	public TableView<ReviewItem> reviewTableView ;
+	
+	public TableColumn<ReviewItem,Integer> reviewIdColumn;
+	public TableColumn <ReviewItem,Integer>reviewQuantityColumn;
+	public TableColumn <ReviewItem,Double>reviewTotalColumn;
+	ReviewItem itemToRemove;
+	
 	
 	
 	
@@ -224,7 +234,10 @@ public class MainScreenController {
 	}
 	public void customerCartAddButtonPressed() {
 		itemTableView.getSelectionModel().clearSelection();
-		reviewItems.add(addItem);
+		//make review item for cart table from addItem.
+		ReviewItem reviewItem = new ReviewItem(addItem.getId(),addItem.getPrice(),addItem.getQuantity());
+		reviewItems.add(reviewItem);
+		
 		totalNumberOfItems += (int)amountSpinner.getValue();
 		numberToSubtractFromDatabase = (int)amountSpinner.getValue();
 		subTotal += (addItem.getPrice() * (int)amountSpinner.getValue());
@@ -243,7 +256,7 @@ public class MainScreenController {
 		//subtract quantity from quantity in itemTable for the added item.
 		dh.subtractItems(addItem.getId(),numberToSubtractFromDatabase);
 		refreshTable();
-		
+		updateReviewSection();
 		clearLabelsCustomerCart();
 		
 		
@@ -255,5 +268,21 @@ public class MainScreenController {
 		customerCartDescriptionLabel.setText("");
 		customerCartPriceLabel.setText("");
 		amountSpinner.getValueFactory().setValue(0);
+	}
+	public void updateReviewSection() {
+		reviewTableView.getItems().setAll(reviewItems);
+	}
+	
+	public void onReviewTableClicked() {
+		//item that will be removed when remove button is pressed under the cart review
+	 itemToRemove = reviewTableView.getSelectionModel().getSelectedItem();
+		
+	}
+	
+	public void removeItemFromCartButtonPressed() {
+		//code to search for item and remove from array
+		//also add this item back to the total number of items in the item database
+		//reduce the number of items and subtotal, tax and total in the cart. 
+		
 	}
 }

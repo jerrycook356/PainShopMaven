@@ -26,7 +26,6 @@ public class DatabaseHelper {
 			if(rs.next())
 			{
 				
-				testTable();
 			}
 			else
 			{
@@ -63,7 +62,6 @@ public class DatabaseHelper {
 			if(rs.next())
 			{
 				
-				testTable();
 			}
 			else
 			{
@@ -93,20 +91,34 @@ public class DatabaseHelper {
 		}
 	}
 
-	//test method to test the tables in the database.
-	public void testTable()
-	{
-		
-	/*	String addString3 = "INSERT INTO CUSTOMERTABLE VALUES(1,'jerry','street','city','ky',41230,606,1)";
-		
+	public void setupTransactionTable() {
 		try(Connection con = ch.getConnection()){
-			Statement stmt = con.createStatement();
-			stmt.executeUpdate(addString3);			
+			DatabaseMetaData dbmd = con.getMetaData();
+			ResultSet rs = dbmd.getTables(null,null,"TRANSACTIONTABLE",null);
+			if(rs.next()) {
+				
+			}else {
+				createTransactionTable();
+			}
+			
 		}catch(SQLException e) {
 			e.printStackTrace();
-		}	*/	
-		
+		}
 	}
+	
+	public void createTransactionTable() {
+		String sql = "CREATE TABLE TRANSACTION TABLE (ID INT(NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY"
+				+"(START WITH 1 INCREMENT BY 1),CUSTOMERID INT(NOT NULL),ITEMS VARCHAR(200),TOTAL DOUBLE";
+		try(Connection con = ch.getConnection()){
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.executeUpdate();
+			ps.close();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
 	//get items for the item selection setting and return to MainScreenController to fill table
 	public ObservableList<Item> getAllItems()
 	{
@@ -304,6 +316,22 @@ public class DatabaseHelper {
 		}
 	}
 	
-	}
+	/*public ObservableList<Transaction> getAllTransactions() {
+	   String sql = "SELECT * FROM TRANSACTIONTABLE";
+	   
+	   try(Connection con = ch.getConnection()){
+		   
+		   PreparedStatement ps = con.prepareStatement(sql);
+		   ResultSet rs = ps.executeQuery();
+		   
+		   while(rs.next()) {
+			   
+		   }
+	   }catch(SQLException e) {
+		   e.printStackTrace();
+	   }
+	}*/
+	
+}
 
 
