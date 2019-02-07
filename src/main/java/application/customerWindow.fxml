@@ -29,6 +29,8 @@
                         <items>
                               <MenuItem mnemonicParsing="false" onAction="#goToMainScreen" text="Main Screen" />
                               <MenuItem mnemonicParsing="false" onAction="#goToInventory" text="Inventory Management" />
+                              <MenuItem mnemonicParsing="false" onAction="#goToTransactionScreen" text="Transaction Management" />
+                              <MenuItem mnemonicParsing="false" onAction="#gotToVendorScreen" text="Vendor Management" />
                         </items>
                       </Menu>
                       <Menu mnemonicParsing="false" text="Edit">

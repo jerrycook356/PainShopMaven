@@ -1,9 +1,9 @@
 application\Model\ConnectionHelper.class
 application\InventoryManagementController.class
-application\Model\Item.class
-application\CustomerWindowController.class
 application\Model\Customer.class
 application\Main.class
-application\Model\DatabaseHelper.class
 application\FXAppLauncher.class
+application\Model\Item.class
+application\CustomerWindowController.class
+application\Model\DatabaseHelper.class
 application\MainScreenController.class

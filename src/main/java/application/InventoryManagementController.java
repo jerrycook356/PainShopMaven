@@ -127,6 +127,28 @@ public void goToMain(Event event) {
 	
 	
 	}
+public void goToTransactionScreen() throws IOException{
+	Parent parent = FXMLLoader.load(getClass().getClassLoader().getResource("application/TransactionManagementScreen.fxml"));
+	Scene scene = new Scene(parent);
+	Stage window = (Stage)(itemIdTextField.getScene().getWindow());
+	window.setTitle("Transaction Management");
+	window.setFullScreen(true);
+	window.setResizable(false);
+	window.setScene(scene);
+	window.show();
+	
+}
+public void goToVendorScreen() throws IOException
+{
+	Parent parent = FXMLLoader.load(getClass().getClassLoader().getResource("application/vendorManagementScreen.fxml"));
+	Scene scene = new Scene(parent);
+	Stage window = (Stage)(itemIdTextField.getScene().getWindow());
+	window.setTitle("Vendor Managment");
+	window.setFullScreen(true);
+	window.setResizable(false);
+	window.setScene(scene);
+	window.show();
+}
 public void refreshTable() {
 	items = dh.getAllItems();
 	itemTableView.getItems().setAll(items);

@@ -55,6 +55,8 @@
                <items>
                   <MenuItem fx:id="goToCustomer" mnemonicParsing="false" onAction="#goToCustomer" text="Customer Management" />
                   <MenuItem fx:id="goToInventory" mnemonicParsing="false" onAction="#gotToInventory" text="Inventory Management" />
+                  <MenuItem mnemonicParsing="false" onAction="#goToTransactionManagement" text="Transaction Management" />
+                  <MenuItem mnemonicParsing="false" onAction="#goToVendorManagement" text="Vendor Management" />
                </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">

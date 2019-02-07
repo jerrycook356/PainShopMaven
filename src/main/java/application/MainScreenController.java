@@ -220,6 +220,26 @@ public class MainScreenController {
 		window.show();
 	}
 	
+	public void goToTransactionManagement() throws IOException {
+		Parent parent = FXMLLoader.load(getClass().getClassLoader().getResource("application/TransactionManagementScreen.fxml"));
+		Scene scene = new Scene(parent);
+		Stage window = (Stage)(customerResultIdLabel.getScene().getWindow());
+		window.setTitle("Transaction Management");
+		window.setFullScreen(true);
+		window.setResizable(false);
+		window.setScene(scene);
+		window.show();
+	}
+	public void goToVendorManagement() throws IOException{
+		Parent parent = FXMLLoader.load(getClass().getClassLoader().getResource("application/vendorManagementScreen.fxml"));
+		Scene scene = new Scene(parent);
+		Stage window = (Stage)(customerResultIdLabel.getScene().getWindow());
+		window.setTitle("Vendor Management");
+		window.setFullScreen(true);
+		window.setResizable(false);
+		window.setScene(scene);
+		window.show();
+	}
 	public void onTableClicked() {
 		Item item = itemTableView.getSelectionModel().getSelectedItem();
 		customerCartIdLabel.setText(Integer.toString(item.getId()));
@@ -232,6 +252,7 @@ public class MainScreenController {
 		addItem = item;
 		
 	}
+	
 	public void customerCartAddButtonPressed() {
 		itemTableView.getSelectionModel().clearSelection();
 		//make review item for cart table from addItem.

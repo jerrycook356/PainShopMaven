@@ -16,7 +16,6 @@ public class Customer {
 	private final SimpleIntegerProperty numberOfSales;
 	
 	
-	
 	public Customer(String name, String street, String city, String state, int zip, Long phoneNumber,
 			int numberOfSales) {
 		
@@ -42,6 +41,7 @@ public class Customer {
 		this.phoneNumber = new SimpleLongProperty(phoneNumber);
 		this.numberOfSales = new SimpleIntegerProperty(numberOfSales);
 	}
+	
 	
 	public int getNumberOfSales()
 	{

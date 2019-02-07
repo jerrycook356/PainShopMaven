@@ -188,6 +188,28 @@ public void goToMainScreen(Event event) throws IOException {
 
 	}
 
+public void goToTransactionScreen()throws IOException{
+	Parent parent = FXMLLoader.load(getClass().getClassLoader().getResource("application/TransactionManagementScreen.fxml"));
+	Scene scene = new Scene(parent);
+	Stage window = (Stage)(nameTextField.getScene().getWindow());
+	window.setTitle("Transaction Management");
+	window.setFullScreen(true);
+	window.setResizable(false);
+	window.setScene(scene);
+	window.show();
+}
+
+public void gotToVendorScreen()throws IOException{
+	Parent parent = FXMLLoader.load(getClass().getClassLoader().getResource("application/vendorManagementScreen.fxml"));
+	Scene scene  = new Scene(parent);
+	Stage window = (Stage)(nameTextField.getScene().getWindow());
+	window.setTitle("Vendor Management");
+	window.setFullScreen(true);
+	window.setResizable(false);
+	window.setScene(scene);
+	window.show();
+}
+
 public void modifyCustomerButtonPressed()
 {
 	

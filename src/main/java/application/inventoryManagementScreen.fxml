@@ -29,6 +29,8 @@
                         <items>
                               <MenuItem fx:id="goToMainScreen" mnemonicParsing="false" onAction="#goToMain" text="Main Screen" />
                           <MenuItem fx:id="goToCustomerManagement" mnemonicParsing="false" onAction="#goToCustomer" text="Customer Managment" />
+                              <MenuItem mnemonicParsing="false" onAction="#goToTransactionScreen" text="Transaction Management" />
+                              <MenuItem mnemonicParsing="false" onAction="#goToVendorScreen" text="Vendor Management" />
                         </items>
                       </Menu>
                       <Menu mnemonicParsing="false" text="Edit">
